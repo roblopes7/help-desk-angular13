@@ -25,7 +25,7 @@ import { AppComponent } from './app.component';
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
-import { ClienteListComponent } from './components/cliente/tecnico-list/cliente-list.component';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -35,6 +35,7 @@ import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecn
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
 
 // Para realizar requisições HTTP
 // Imports para componentes do Angular Material
@@ -53,7 +54,8 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     ClienteListComponent,
     ClienteCreateComponent,
     ClienteUpdateComponent,
-    ClienteDeleteComponent
+    ClienteDeleteComponent,
+    ChamadoListComponent
   ],
   imports: [
     BrowserModule,

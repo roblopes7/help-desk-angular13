@@ -1,4 +1,4 @@
-import { Cliente } from './../../../models/cliente';
+import { Cliente } from '../../../models/cliente';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +13,7 @@ export class ClienteListComponent implements OnInit {
 
   ELEMENT_DATA: Cliente[] = [];
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'acoes'];
   dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
