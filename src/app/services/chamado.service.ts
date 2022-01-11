@@ -14,4 +14,8 @@ export class ChamadoService {
   findAll():Observable<Chamado[]>{
     return this.httpClient.get<Chamado[]>(`${API_CONFIG.baseUrl}/chamados`);
   }
+
+  create(chamado: Chamado):Observable<Chamado>{
+    return this.httpClient.post<Chamado>(`${API_CONFIG.baseUrl}/chamados`, chamado);
+  }
 }
