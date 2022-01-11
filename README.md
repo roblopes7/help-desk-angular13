@@ -1,3 +1,22 @@
+Back-end da parte de um help-desk .Curso Angular + Spring : https://www.udemy.com/course/formacao-angular-spring-boot/
+
+Projeto de estudo composto por duas partes, uma sendo back-end com Spring e um front com Angular.
+
+Sobre o projeto: Um help desk para gerenciamento de chamados, onde permitir adicionar cliente e técnicos que serão vinculados ao chamado.
+
+Angular: 13.
+
+Para rodar localmente: fazer o clone do projeto.
+
+rodar na pasta do projeto: npm i
+
+opcional: alterar em api.conffig.ts o local apontado para as requisições(back-end).
+
+rodar projeto: ng serve
+
+
+--- Readme padrão do Angular  ---
+
 # HelpDeskApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
