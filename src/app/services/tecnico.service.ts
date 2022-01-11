@@ -11,6 +11,10 @@ export class TecnicoService {
 
   constructor(private httpClient:HttpClient) { }
 
+  findById(id:any):Observable<Tecnico>{
+    return this.httpClient.get<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${id}`);
+  }
+
   findAll(): Observable<Tecnico[]> {
     return this.httpClient.get<Tecnico[]>(`${API_CONFIG.baseUrl}/tecnicos`);
   }
@@ -18,5 +22,15 @@ export class TecnicoService {
   create(tecnico:Tecnico):Observable<Tecnico>{
     return this.httpClient.post<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos`, tecnico);
   }
+
+  update(tecnico:Tecnico):Observable<Tecnico>{
+    return this.httpClient.put<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${tecnico.id}`, tecnico);
+  }
+
+  delete(id:any):Observable<Tecnico>{
+    return this.httpClient.delete<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${id}`);
+  }
+
+
 
 }
