@@ -1,7 +1,7 @@
 <div class="container">
 
   <h1>Listagem de Técnicos</h1>
-  <button mat-stroked-button color="primary" class="mat-elevation-z8">Novo técnico</button>
+  <button routerLink="create" mat-stroked-button color="primary" class="mat-elevation-z8">Novo técnico</button>
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
