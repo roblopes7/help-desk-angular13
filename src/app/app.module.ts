@@ -37,6 +37,7 @@ import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecn
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
+import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 
 // Para realizar requisições HTTP
 // Imports para componentes do Angular Material
@@ -57,7 +58,8 @@ import { ChamadoCreateComponent } from './components/chamado/chamado-create/cham
     ClienteUpdateComponent,
     ClienteDeleteComponent,
     ChamadoListComponent,
-    ChamadoCreateComponent
+    ChamadoCreateComponent,
+    ChamadoUpdateComponent
   ],
   imports: [
     BrowserModule,

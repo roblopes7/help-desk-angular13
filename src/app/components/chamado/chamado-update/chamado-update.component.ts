@@ -1,20 +1,20 @@
-import { ToastrService } from 'ngx-toastr';
-import { Chamado } from './../../../models/chamados';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Chamado } from 'src/app/models/chamados';
 import { Cliente } from 'src/app/models/cliente';
 import { Tecnico } from 'src/app/models/tecnico';
 import { ChamadoService } from 'src/app/services/chamado.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-chamado-create',
-  templateUrl: './chamado-create.component.html',
-  styleUrls: ['./chamado-create.component.css']
+  selector: 'app-chamado-update',
+  templateUrl: './chamado-update.component.html',
+  styleUrls: ['./chamado-update.component.css']
 })
-export class ChamadoCreateComponent implements OnInit {
+export class ChamadoUpdateComponent implements OnInit {
 
   chamado: Chamado = {
     id: '',
@@ -44,18 +44,31 @@ export class ChamadoCreateComponent implements OnInit {
     private clienteService:ClienteService,
     private tecnicoService: TecnicoService,
     private toast: ToastrService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.chamado.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
     this.findAllClientes();
     this.findAllTecnicos();
   }
 
-  create(){
-    this.chamadoService.create(this.chamado).subscribe(resposta =>{
-      this.toast.success('Chamado criado com sucesso', 'Novo chamado');
+  findById(){
+    this.chamadoService.findById(this.chamado.id).subscribe(resposta => {
+      this.chamado = resposta;
+    }, ex => {
+      this.toast.error(ex.error.error);
+    });
+  }
+
+  update(){
+    console.log(this.chamado);
+    this.chamadoService.update(this.chamado).subscribe(resposta =>{
+      this.toast.success('Chamado atualizado com sucesso', 'Update');
       this.router.navigate(['chamados']);
     }, ex => {
+      console.log(ex);
       this.toast.error(ex.error.error);
     });
   }
@@ -80,5 +93,18 @@ export class ChamadoCreateComponent implements OnInit {
       this.tecnico.valid &&
       this.cliente.valid;
   }
+
+  retornaStatus(status:any):string{
+    if(status == 0) return 'ABERTO';
+    if(status == 1) return 'EM ANDAMENTO';
+    else return 'ENCERRADO';
+  }
+
+  retornaPrioridade(prioridade:any):string{
+    if(prioridade == 0) return 'BAIXA';
+    if(prioridade == 1) return 'MÉDIA';
+    else return 'ALTA';
+  }
+
 
 }
